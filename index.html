@@ -192,8 +192,22 @@ transition: all 0.5s ease;
                 <li><strong>animation-timing-function</strong>: Como a animação progride ao longo do tempo.</li>
                 <li><strong>animation-delay</strong>: Um atraso antes do início da animação.</li>
                 <li><strong>animation-iteration-count</strong>: Quantas vezes a animação deve ser repetida (pode ser um número ou "infinite").</li>
-                <li><strong>animation-direction</strong>: Se a animação deve ser reproduzida para frente, para trás ou alternando entre os dois.</li>
-                <li><strong>animation-fill-mode</strong>: Como os estilos são aplicados antes e depois da execução da animação.</li>
+                <li><strong>animation-direction</strong>:
+                    <ul>
+                        <li>normal: do "from" para o "to"</li>
+                        <li>reverse: do "to" para o "from"</li>
+                        <li>alternate: alterna entre "from" para "to" e "to" para "from"</li>
+                        <li>alternate-reverse: começa com reverse e alterna</li>
+                    </ul>
+                </li>
+                <li><strong>animation-fill-mode</strong>:
+                    <ul>
+                        <li>backwards: começa no estado "from" instantaneamente</li>
+                        <li>forwards: permanece no estado "to" ao final</li>
+                        <li>both: combina backwards e forwards</li>
+                        <li>none: começa e termina na posição original do elemento</li>
+                    </ul>
+                </li>
             </ul>
         </div>
         <p>Observe a animação complexa do quadrado:</p>
