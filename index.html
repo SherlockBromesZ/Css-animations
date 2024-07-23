@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Transformações, Transições e Animações</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: #3498db;
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+        }
+        .transform:hover {
+            transform: translate(50px, 50px) scale(1.5) rotate(45deg);
+        }
+        .transition {
+            transition: background-color 1s, transform 1s 1s ease;
+        }
+        .transition:hover {
+            background-color: #e74c3c;
+            transform: scale(1.2);
+        }
+        @keyframes move {
+            from {
+                transform: translateX(0);
+            }
+            to {
+                transform: translateX(200px);
+            }
+        }
+        .animation {
+            animation-name: move;
+            animation-duration: 3s;
+            animation-fill-mode: forwards;
+            animation-delay: 1s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+    </style>
+</head>
+<body>
+    <h1>CSS Transformações, Transições e Animações</h1>
+    
+    <h2>Transform</h2>
+    <p>Passe o mouse sobre o quadrado para ver as transformações:</p>
+    <div class="box transform">Transform</div>
+    <pre>
+transform: translate(50px, 50px) scale(1.5) rotate(45deg);
+    </pre>
+    <ul>
+        <li><strong>translate:</strong> muda a posição nos eixos x e y</li>
+        <li><strong>scale:</strong> muda a escala nos eixos x e y (maior ou menor)</li>
+        <li><strong>rotate:</strong> rotaciona o elemento (pode ser em x, y, ou z)</li>
+    </ul>
+
+    <h2>Transition</h2>
+    <p>Passe o mouse sobre o quadrado para ver a transição:</p>
+    <div class="box transition">Transition</div>
+    <pre>
+transition: background-color 1s, transform 1s 1s ease;
+    </pre>
+    <p>Você pode especificar configurações para cada estilo mudado:</p>
+    <ol>
+        <li>Nome da propriedade</li>
+        <li>Duração da transição</li>
+        <li>Atraso antes da execução (delay)</li>
+        <li>Tipo de transição (ease, linear, ease-in, ease-out, etc.)</li>
+    </ol>
+
+    <h2>Animation (Keyframes)</h2>
+    <p>Observe a animação do quadrado:</p>
+    <div class="box animation">Animation</div>
+    <pre>
+.animation {
+    animation-name: move;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+    animation-delay: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes move {
+    from { transform: translateX(0); }
+    to { transform: translateX(200px); }
+}
+    </pre>
+    <ul>
+        <li><strong>animation-name:</strong> nome da animação definida em @keyframes</li>
+        <li><strong>animation-duration:</strong> duração da animação</li>
+        <li><strong>animation-fill-mode:</strong> 
+            <ul>
+                <li>backwards: começa no estado "from" instantaneamente</li>
+                <li>forwards: permanece no estado "to" ao final</li>
+                <li>both: combina backwards e forwards</li>
+                <li>none: começa e termina na posição original do elemento</li>
+            </ul>
+        </li>
+        <li><strong>animation-delay:</strong> atraso antes de iniciar a animação</li>
+        <li><strong>animation-iteration-count:</strong> número de repetições ou "infinite"</li>
+        <li><strong>animation-direction:</strong> 
+            <ul>
+                <li>normal: do "from" para o "to"</li>
+                <li>reverse: do "to" para o "from"</li>
+                <li>alternate: alterna entre "from" para "to" e "to" para "from"</li>
+                <li>alternate-reverse: começa com reverse e alterna</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h2>Encadeamento de Animações</h2>
+    <p>Para encadear animações, você pode usar múltiplas animações separadas por vírgula:</p>
+    <pre>
+animation: move 3s forwards, fadeOut 2s 3s forwards;
+    </pre>
+    <p>Isso executará a animação "move" por 3 segundos, seguida pela animação "fadeOut" por 2 segundos após um atraso de 3 segundos.</p>
+</body>
+</html>
